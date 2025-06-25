@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'xyz.wagyourtail.unimined' version '1.3.12'
+}
+
+base.archivesName = 'f3mod'
+
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+
+unimined {
+    useGlobalCache = false
+    minecraft {
+        version "b1.7.3"
+        side "client"
+
+        mappings {
+            retroMCP("b1.7")
+        }
+
+        jarMod {
+        }
+    }
+}
+
+dependencies {
+    jarMod "risugami:modloader:b1.7.3"
+}
