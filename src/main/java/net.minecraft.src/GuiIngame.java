@@ -197,8 +197,6 @@ public class GuiIngame extends Gui {
 				case 3:
 					playerFacing = "East (3)";
 					break;
-				default:
-					playerFacing = "Unknown";
 			}
 
 			int chunkPositionX = playerPosX >> 4;
@@ -225,8 +223,6 @@ public class GuiIngame extends Gui {
 					case 3:
 						difficulty = "Hard (3)";
 						break;
-					default:
-						difficulty = "Unknown";
 				}
 			}
 
