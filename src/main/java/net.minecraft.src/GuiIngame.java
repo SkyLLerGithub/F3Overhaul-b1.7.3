@@ -183,21 +183,8 @@ public class GuiIngame extends Gui {
 			int playerPosY = MathHelper.floor_double(this.mc.thePlayer.posY);
 			int playerPosZ = MathHelper.floor_double(this.mc.thePlayer.posZ);
 			int playerFacingInt = MathHelper.floor_double((double)(this.mc.thePlayer.rotationYaw * 4.0F / 360.0F) + 0.5) & 3;
-			String playerFacing;
-			switch (playerFacingInt) {
-				case 0:
-					playerFacing = "South (0)";
-					break;
-				case 1:
-					playerFacing = "West (1)";
-					break;
-				case 2:
-					playerFacing = "North (2)";
-					break;
-				case 3:
-					playerFacing = "East (3)";
-					break;
-			}
+			String[] directionsFacing = {"South (0)", "West (1)", "North (2)", "East (3)"};
+			String playerFacing = directionsFacing[playerFacingInt];
 
 			int chunkPositionX = playerPosX >> 4;
 			int chunkPositionZ = playerPosZ >> 4;
@@ -210,20 +197,8 @@ public class GuiIngame extends Gui {
 			if (this.mc.theWorld.multiplayerWorld) {
 				difficulty = "MpServer";
 			} else {
-				switch (currentDifficulty) {
-					case 0:
-						difficulty = "Peaceful (0)";
-						break;
-					case 1:
-						difficulty = "Easy (1)";
-						break;
-					case 2:
-						difficulty = "Normal (2)";
-						break;
-					case 3:
-						difficulty = "Hard (3)";
-						break;
-				}
+				String[] difficultyLevels = {"Peaceful (0)", "Easy (1)", "Normal (2)", "Hard (3)"};
+				difficulty = difficultyLevels[this.mc.theWorld.difficultySetting];
 			}
 
 			String biomeName = this.mc.theWorld.getWorldChunkManager().getBiomeGenAt(playerPosX, playerPosZ).biomeName;
